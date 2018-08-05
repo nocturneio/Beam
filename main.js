@@ -3,10 +3,16 @@ const {app, BrowserWindow} = require('electron');
 let win = null;
 
 function createWindow() {
-    win = new BrowserWindow({width: 1000, height: 600});
+    win = new BrowserWindow({
+        width: 900,
+        height: 600,
+        icon: './src/assets/logo.png',
+        title: 'Shine',
+        center: true,
+        frame: false
+    });
 
     win.loadURL('http://localhost:3000');
-    win.webContents.openDevTools();
 
     win.on('closed', function () {
         win = null;
