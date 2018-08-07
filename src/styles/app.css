@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 
-::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar {
+    display: none;
+}
 
 body {
     font-family: 'Rubik', sans-serif;
@@ -29,6 +31,14 @@ img {
     -webkit-app-region: no-drag;
 }
 
+.date-label {
+    margin-top: 20px;
+    text-transform: uppercase;
+    color: #cacaca;
+    font-weight: bold;
+    padding-left: 30px;
+}
+
 .system-bar-icon {
     position: absolute;
     top: 15px;
@@ -40,7 +50,8 @@ img {
 }
 
 .auth-logo {
-    height: 80px
+    height: 80px;
+    margin-left: -20px;
 }
 
 .auth-quit-button {
@@ -71,23 +82,23 @@ img {
 }
 
 .hover-teal:hover, .hover-teal-active {
-    color: #36F0C7 !important;
+    color: #3c4bdf !important;
 }
 
-.hover-blue:hover, .hover-blue-active  {
-    color: #58C2FF !important;
+.hover-blue:hover, .hover-blue-active {
+    color: #1e2dbe !important;
 }
 
-.hover-purple:hover, .hover-purple-active  {
-    color: #5465FC !important;
+.hover-purple:hover, .hover-purple-active {
+    color: #8e64ff !important;
 }
 
-.hover-yellow:hover, .hover-yellow-active  {
-    color: #FAD668 !important;
+.hover-yellow:hover, .hover-yellow-active {
+    color: #b439c8 !important;
 }
 
-.hover-pink:hover, .hover-pink-active  {
-    color: #FF3C87 !important;
+.hover-pink:hover, .hover-pink-active {
+    color: #ed59d2 !important;
 }
 
 .nav-button-mine {
@@ -102,4 +113,42 @@ hr {
     height: 2px;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.2);
+}
+
+hr.separator {
+    border: 0;
+    height: 2px;
+    border-radius: 10px;
+    background: rgba(205, 205, 205, 0.2);
+}
+
+.text-shadow {
+    text-shadow: 0px 0px 15px rgba(84, 101, 252, 0.2)
+}
+
+.card-icon {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ml-0-5 {
+    margin-left: 5px;
+}
+
+.transaction-card-shadow {
+    -webkit-box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+    box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+}
+
+.transaction-price-shadow {
+    -webkit-box-shadow: 0 5px 25px rgba(50,50,93,.1), 0 3px 10px rgba(0,0,0,.07);
+    box-shadow: 0 5px 25px rgba(50,50,93,.1), 0 3px 10px rgba(0,0,0,.07);
+}
+
+.gradient {
+    background-image: linear-gradient(to right, #3c4bdf 0%, #b439c8 51%, #ed59d2 100%);
 }

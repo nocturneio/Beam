@@ -4,6 +4,7 @@ import {BrowserRouter, Redirect, Route} from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 import AuthScreen from "./screens/auth/AuthScreen";
 import HomeScreen from "./screens/home/HomeScreen";
+import VirementsScreen from "./screens/virements/VirementsScreen";
 
 export const fakeAuth = {
     isAuthenticated: false,
@@ -55,6 +56,7 @@ ReactDOM.render((
         <div>
             <LoginRoute exact path="/" component={AuthScreen}/>
             <PrivateRoute exact path="/home" component={HomeScreen}/>
+            <PrivateRoute exact path="/virements" component={VirementsScreen}/>
         </div>
     </BrowserRouter>
 ), document.getElementById('root'));

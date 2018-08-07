@@ -2,28 +2,29 @@ import React, {Component} from 'react';
 import '../styles/bulma.css';
 import '../styles/app.css';
 import '../styles/animate.css';
+import {withRouter} from "react-router-dom";
 
 class NavbarComponent extends Component {
 
     render() {
         return (
             <div>
-                <nav className="navbar is-transparent drag">
-                    <div className="navbar-brand no-drag">
+                <nav className="navbar is-transparent drag is-fixed-top">
+                    <div className="navbar-brand">
                         <a className="navbar-item">
-                            <img src={require('../assets/logo.png')} width="70" height="45"/>
+                            <img src={require('../assets/beam.png')} width="70" height="45"/>
                         </a>
                     </div>
 
                     <div id="navbarExampleTransparentExample" className="navbar-menu">
                         <div className="navbar-start">
-                            <a className={this.props.currentPage === "home" ? "navbar-item hover-blue no-drag hover-blue-active is-unselectable" : "navbar-item hover-blue no-drag is-unselectable"} style={{marginLeft: 10}}>
+                            <a onClick={() => this.props.history.push('/home')} className={this.props.currentPage === "home" ? "navbar-item hover-teal no-drag hover-teal-active is-unselectable" : "navbar-item hover-teal no-drag is-unselectable"} style={{marginLeft: 10}}>
                                 Accueil
                             </a>
-                            <a className={this.props.currentPage === "clients" ? "navbar-item hover-blue no-drag hover-yellow-active is-unselectable" : "navbar-item hover-yellow no-drag is-unselectable"}>
+                            <a className={this.props.currentPage === "clients" ? "navbar-item hover-yellow no-drag hover-yellow-active is-unselectable" : "navbar-item hover-yellow no-drag is-unselectable"}>
                                 Clients <span className="tag is-rounded" style={{marginLeft: 5}}>Bientôt...</span>
                             </a>
-                            <a className={this.props.currentPage === "virements" ? "navbar-item hover-blue no-drag hover-pink-active is-unselectable" : "navbar-item hover-pink no-drag is-unselectable"}>
+                            <a onClick={() => this.props.history.push('/virements')} className={this.props.currentPage === "virements" ? "navbar-item hover-pink no-drag hover-pink-active is-unselectable" : "navbar-item hover-pink no-drag is-unselectable"}>
                                 Virements
                             </a>
                         </div>
@@ -52,13 +53,13 @@ class NavbarComponent extends Component {
                     </div>
                 </nav>
 
-                <section className="hero is-small" style={{backgroundColor: '#5465FC'}}>
-                    <div className="hero-body">
+                <section className="hero is-small has-navbar-fixed-top" style={{backgroundColor: this.props.color === undefined ? '#1e2dbe' : this.props.color}}>
+                    <div className="hero-body" style={{marginTop: 10}}>
                         <p className="title is-4 has-text-white is-unselectable animated fadeInUp">
-                            Accueil
+                            {this.props.title}
                         </p>
                         <p className="subtitle is-6 subtitle-hero is-unselectable animated fadeInUp">
-                            Situation de votre compte.
+                            {this.props.subtitle}
                         </p>
                         <hr/>
                         {this.props.heroContent}
@@ -69,4 +70,4 @@ class NavbarComponent extends Component {
     }
 }
 
-export default NavbarComponent;
+export default withRouter(NavbarComponent);

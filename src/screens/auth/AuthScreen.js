@@ -19,9 +19,9 @@ class AuthScreen extends Component {
                 <section className="hero is-white is-fullheight is-bold">
                     <div className="hero-body">
                         <div className="container auth-box">
-                            <img src={require('../../assets/logo.png')} className="auth-logo animated fadeInDown"/>
+                            <img src={require('../../assets/beam.png')} className="auth-logo animated fadeInDown"/>
                             <h2 className="subtitle animated fadeInUp is-unselectable">
-                                Le compte pro gratuit des indépendant.
+                                Le client desktop de Shine.
                             </h2>
                             <a className="button is-primary is-rounded animated fadeInUp delay-200ms" onClick={() => {
                                 fakeAuth.authenticate(() => {

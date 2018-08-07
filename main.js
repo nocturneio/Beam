@@ -6,8 +6,8 @@ function createWindow() {
     win = new BrowserWindow({
         width: 900,
         height: 600,
-        icon: './src/assets/logo.png',
-        title: 'Shine',
+        icon: './src/assets/beam_icon.png',
+        title: 'Beam',
         center: true,
         frame: false
     });
