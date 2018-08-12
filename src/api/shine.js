@@ -37,10 +37,10 @@ export default class Shine {
      * @param SCOPE An array of string with your requested scope.
      */
     constructor(CLIENT_ID : String, CLIENT_SECRET : String, REDIRECT_URI : String, SCOPE : Array) {
-        if(CLIENT_ID instanceof String == false) throw new Error("Please specify a string for the client id.");
+        /*if(CLIENT_ID instanceof String == false) throw new Error("Please specify a string for the client id.");
         if(CLIENT_SECRET instanceof String == false) throw new Error("Please specify a string for the client secret.");
-        if(REDIRECT_URI instanceof String == false) throw new Error("Please specify a string for the redirect url.");
-        if(Array.isArray(SCOPE)) throw new Error("Please specify an array for the scope(s).");
+        if(REDIRECT_URI instanceof String == false) throw new Error("Please specify a string for the redirect url.");*/
+        //if(Array.isArray(SCOPE)) throw new Error("Please specify an array for the scope(s).");
 
         this.CLIENT_ID = CLIENT_ID;
         this.CLIENT_SECRET = CLIENT_SECRET;
@@ -72,7 +72,7 @@ export default class Shine {
      * @returns {Promise<T | never>}
      */
     requestAccessToken(code : String){
-        if(code instanceof String == false) throw new Error("Please specify a string for the returned code.");
+        //if(code instanceof String == false) throw new Error("Please specify a string for the returned code.");
 
         return RequestHelper.url(this.API_OAUTH_ENDPOINT + '/token').headers({
             'Content-Type': 'application/json'
@@ -82,8 +82,8 @@ export default class Shine {
             'grant_type': 'authorization_code',
             'code': code,
             'redirect_uri': this.REDIRECT_URI
-        }).get().then((url) => {
-            return url;
+        }).get().then((user) => {
+            return user;
         }).catch(() => {
             throw new Error('Whoops ! An error occured')
         });
@@ -96,7 +96,7 @@ export default class Shine {
      * @returns {Promise<T | never>}
      */
     refreshToken(accessToken : String){
-        if(code instanceof String == false) throw new Error("Please specify a string for the access token.");
+        if(accessToken instanceof String === false) throw new Error("Please specify a string for the access token.");
 
         return RequestHelper.url(this.API_OAUTH_ENDPOINT + '/token').headers({
             'Content-Type': 'application/json'

@@ -5,11 +5,24 @@ import '../../styles/animate.css';
 import SystemBarComponent from "../../components/SystemBarComponent";
 import {withRouter, Link} from "react-router-dom";
 import {fakeAuth} from "../../index";
+import ShineClient from "../../api";
 
-class AuthScreen extends Component {
+class AuthValidateScreen extends Component {
 
     componentDidMount() {
-
+        const regex = /(?<=\?code=)(.*)(?=&state)/gm;
+        let code = regex.exec(this.props.location.search);
+        ShineClient.make().requestAccessToken(code[0]).then((user) => {
+            localStorage.setItem('user', user.data);
+            console.log(user.data);
+            fakeAuth.authenticate(() => {
+                this.props.history.push('/home');
+            })
+        }).catch(() => {
+            // todo show a toast
+            this.props.history.push('/');
+            console.log('Une erreur s\'est produite !')
+        })
     }
 
     render() {
@@ -19,13 +32,9 @@ class AuthScreen extends Component {
                 <section className="hero is-white is-fullheight is-bold">
                     <div className="hero-body">
                         <div className="container auth-box">
-                            <img src={require('../../assets/beam.png')} className="auth-logo animated fadeInDown"/>
                             <h2 className="subtitle animated fadeInUp is-unselectable">
-                                Le client desktop de Shine.
+                                Chargement...
                             </h2>
-                            <a className="button is-primary is-rounded animated fadeInUp delay-200ms" onClick={() => {
-                                window.location = 'https://api.shine.fr/v2/authentication/oauth2/authorize?client_id=b6fbbf9d-785c-40b1-af27-abbe24aa04e5&scope=openid%20profile%20email%20phone%20user:profile:read%20user:companies:read&redirect_uri=http://localhost:3000/validate&state=test'
-                            }}>Connexion</a>
                         </div>
                     </div>
                 </section>
@@ -34,4 +43,4 @@ class AuthScreen extends Component {
     }
 }
 
-export default withRouter(AuthScreen);
+export default withRouter(AuthValidateScreen);

@@ -63,7 +63,10 @@ export default class RequestHelper {
      * @returns {Promise<AxiosResponse<T>>}
      */
     get(){
-        let request = {data: this._parameters, headers: this._headers};
+        const params = this._parameters;
+        const headers = this._headers;
+
+        let request = {params, headers};
         return axios.get(this._url, request);
     }
 }

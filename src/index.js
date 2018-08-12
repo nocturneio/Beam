@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import AuthScreen from "./screens/auth/AuthScreen";
 import HomeScreen from "./screens/home/HomeScreen";
 import VirementsScreen from "./screens/virements/VirementsScreen";
+import AuthValidateScreen from "./screens/auth/AuthValidateScreen";
 
 export const fakeAuth = {
     isAuthenticated: false,
@@ -55,6 +56,7 @@ ReactDOM.render((
     <BrowserRouter>
         <div>
             <LoginRoute exact path="/" component={AuthScreen}/>
+            <LoginRoute exact path="/validate" component={AuthValidateScreen}/>
             <PrivateRoute exact path="/home" component={HomeScreen}/>
             <PrivateRoute exact path="/virements" component={VirementsScreen}/>
         </div>
