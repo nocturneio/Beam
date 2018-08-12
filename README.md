@@ -1,6 +1,5 @@
-<a href="https://lab.nocturne.app"><img src="https://i.imgur.com/phmyhIq.png" align="left" height="110" width="110" ></a>  
-eam (soon... 45%)
----------
+<a href="https://lab.nocturne.app"><img src="https://i.imgur.com/oDFGauE.png" align="left" height="122" width="348"/></a>  <br>
+
 
 A simple Shine Bank client for use Shine on your desktop.
 
@@ -12,8 +11,5 @@ A simple Shine Bank client for use Shine on your desktop.
 
 Vous pouvez désormais utiliser Shine sur votre ordinateur par le simple biais de cette application compatible Windows, Mac OS et Linux.
 
-# License
+<img src="https://i.imgur.com/HrCZkQO.png" align="left"/>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-**Open source <3**
