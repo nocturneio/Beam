@@ -1,7 +1,7 @@
-<a href="https://lab.nocturne.app"><img src="https://i.imgur.com/oDFGauE.png" align="left" height="122" width="348"/></a>  <br>
+<a href="https://lab.nocturne.app"><img src="https://i.imgur.com/oDFGauE.png" align="left" height="66" width="174"/></a>      
 
 
-A simple Shine Bank client for use Shine on your desktop.
+**A simple Shine Bank client for use Shine on your desktop.**
 
 
 <br>
