@@ -4,7 +4,7 @@ import '../../styles/app.css';
 import '../../styles/animate.css';
 import SystemBarComponent from "../../components/SystemBarComponent";
 import {withRouter, Link} from "react-router-dom";
-import {fakeAuth} from "../../index";
+import {auth} from "../../index";
 
 class AuthScreen extends Component {
 

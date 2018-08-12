@@ -6,8 +6,9 @@ import AuthScreen from "./screens/auth/AuthScreen";
 import HomeScreen from "./screens/home/HomeScreen";
 import VirementsScreen from "./screens/virements/VirementsScreen";
 import AuthValidateScreen from "./screens/auth/AuthValidateScreen";
+import SplashScreen from "./screens/SplashScreen";
 
-export const fakeAuth = {
+export const auth = {
     isAuthenticated: false,
     authenticate(cb) {
         this.isAuthenticated = true;
@@ -23,7 +24,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
-            fakeAuth.isAuthenticated ? (
+            auth.isAuthenticated ? (
                 <Component {...props} />
             ) : (
                 <Redirect
@@ -41,7 +42,7 @@ const LoginRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
-            fakeAuth.isAuthenticated ? (
+            auth.isAuthenticated ? (
                 <Redirect
                     to={{pathname: "/home", state: { from: props.location }}}
                 />
@@ -55,7 +56,8 @@ const LoginRoute = ({ component: Component, ...rest }) => (
 ReactDOM.render((
     <BrowserRouter>
         <div>
-            <LoginRoute exact path="/" component={AuthScreen}/>
+            <Route exact path="/" component={SplashScreen}/>
+            <LoginRoute exact path="/login" component={AuthScreen}/>
             <LoginRoute exact path="/validate" component={AuthValidateScreen}/>
             <PrivateRoute exact path="/home" component={HomeScreen}/>
             <PrivateRoute exact path="/virements" component={VirementsScreen}/>

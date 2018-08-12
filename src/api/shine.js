@@ -95,8 +95,8 @@ export default class Shine {
      *
      * @returns {Promise<T | never>}
      */
-    refreshToken(accessToken : String){
-        if(accessToken instanceof String === false) throw new Error("Please specify a string for the access token.");
+    refreshToken(refresh_token : String){
+        //if(accessToken instanceof String === false) throw new Error("Please specify a string for the access token.");
 
         return RequestHelper.url(this.API_OAUTH_ENDPOINT + '/token').headers({
             'Content-Type': 'application/json'
@@ -104,10 +104,10 @@ export default class Shine {
             'client_id': this.CLIENT_ID,
             'client_secret': this.CLIENT_SECRET,
             'grant_type': 'refresh_token',
-            'refresh_token': accessToken,
+            'refresh_token': refresh_token,
             'redirect_uri': this.REDIRECT_URI
-        }).get().then((url) => {
-            return url;
+        }).get().then((user) => {
+            return user;
         }).catch(() => {
             throw new Error('Whoops ! An error occured')
         });

@@ -4,23 +4,22 @@ import '../../styles/app.css';
 import '../../styles/animate.css';
 import SystemBarComponent from "../../components/SystemBarComponent";
 import {withRouter, Link} from "react-router-dom";
-import {fakeAuth} from "../../index";
+import {auth} from "../../index";
 import ShineClient from "../../api";
+import queryString from 'query-string';
 
 class AuthValidateScreen extends Component {
 
     componentDidMount() {
-        const regex = /(?<=\?code=)(.*)(?=&state)/gm;
-        let code = regex.exec(this.props.location.search);
-        ShineClient.make().requestAccessToken(code[0]).then((user) => {
-            localStorage.setItem('user', user.data);
-            console.log(user.data);
-            fakeAuth.authenticate(() => {
+        const values = queryString.parse(this.props.location.search);
+        ShineClient.make().requestAccessToken(values.code).then((user) => {
+            localStorage.setItem('user', JSON.stringify(user.data));
+            auth.authenticate(() => {
                 this.props.history.push('/home');
             })
         }).catch(() => {
             // todo show a toast
-            this.props.history.push('/');
+            this.props.history.push('/login');
             console.log('Une erreur s\'est produite !')
         })
     }
