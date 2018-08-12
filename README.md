@@ -11,5 +11,5 @@
 
 Vous pouvez désormais utiliser Shine sur votre ordinateur par le simple biais de cette application compatible Windows, Mac OS et Linux.
 
-<img src="https://i.imgur.com/HrCZkQO.png" align="left"/>
+<img src="https://i.imgur.com/rlGKDCv.png" align="left"/>
 
