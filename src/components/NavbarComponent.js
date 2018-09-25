@@ -33,7 +33,7 @@ class NavbarComponent extends Component {
                             <div className="navbar-item">
                                 <div className="field is-grouped">
                                     <p className="control">
-                                        <a className="button is-rounded no-drag">
+                                        <a className="button is-rounded no-drag" onClick={() => this.props.history.push('/entreprise')}>
                                             <span className="nav-button-mine">
                                                  Mon Entreprise
                                             </span>

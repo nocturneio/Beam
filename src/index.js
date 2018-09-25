@@ -7,6 +7,7 @@ import HomeScreen from "./screens/home/HomeScreen";
 import VirementsScreen from "./screens/virements/VirementsScreen";
 import AuthValidateScreen from "./screens/auth/AuthValidateScreen";
 import SplashScreen from "./screens/SplashScreen";
+import EntrepriseScreen from "./screens/entreprise/EntrepriseScreen";
 
 export const auth = {
     isAuthenticated: false,
@@ -61,6 +62,7 @@ ReactDOM.render((
             <LoginRoute exact path="/validate" component={AuthValidateScreen}/>
             <PrivateRoute exact path="/home" component={HomeScreen}/>
             <PrivateRoute exact path="/virements" component={VirementsScreen}/>
+            <PrivateRoute exact path="/entreprise" component={EntrepriseScreen}/>
         </div>
     </BrowserRouter>
 ), document.getElementById('root'));
